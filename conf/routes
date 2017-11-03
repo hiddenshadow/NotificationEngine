@@ -1,0 +1,70 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+POST    /sendMail                           controllers.MessagingController.sendMail
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Get product information based on Id.
+GET     /products/$id<[0-9]+>               controllers.MongoController.getById(id: Integer)
+
+# API to update product info like price.
+PUT     /products/$id<[0-9]+>               controllers.MongoController.updateById(id: Integer)
+
+GET     /products/$fromPrice<[0-9]+>/$toPrice<[0-9]+>         controllers.MongoController.getProductsInPriceRange(fromPrice: Integer, toPrice: Integer)
+
+#/fromPrice/toPrice         controllers.MongoController.getProductsInPriceRange(fromPrice: String, toPrice: String)
+#/$fromPrice<[0-9]+>/$toPrice<[0-9]+>
+# Home page
+GET     /insertNew                          controllers.MongoController.insertNew()
+POST    /product/create                     controllers.MongoController.createProduct
+POST    /init                               controllers.MongoController.initDb
+
+
+#POST    /mongo/employee                     controllers.EmployeeController.createByMongo()
+
+
+# Home page
+#GET     /                           controllers.EmployeeController.index()
+
+# Routes API Rest
+#GET     /employees                  controllers.EmployeeController.list(page: Integer ?= 1, size: Integer ?= 3)
+#GET     /employees/$id<[0-9]+>      controllers.EmployeeController.get(id: Integer)
+#POST    /employees                  controllers.EmployeeController.create()
+#PUT     /employees                  controllers.EmployeeController.update()
+#PATCH   /employees                  controllers.EmployeeController.update()
+#DELETE  /employees/$id<[0-9]+>      controllers.EmployeeController.delete(id: Integer)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
